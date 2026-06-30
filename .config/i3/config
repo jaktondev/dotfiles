@@ -1,0 +1,86 @@
+# Set Windows key as Mod
+set $mod Mod4
+
+# Font for window titles
+font pango:monospace 10
+
+# --- Gaps ---
+# Small gaps between windows, big gaps outside
+gaps inner 8
+gaps outer 12
+smart_gaps off
+
+# --- Pastel Color Palette ---
+set $bg       #1E1E2E
+set $fg       #CDD6F4
+set $pink     #F5C2E7
+set $lavender #B4BEFE
+set $blue     #89B4FA
+
+# class                 border    bground   text  indicator child_border
+client.focused          $pink     $pink     $bg   $pink     $pink
+client.focused_inactive $lavender $bg       $fg   $bg       $lavender
+client.unfocused        $bg       $bg       $fg   $bg       $bg
+client.urgent           $blue     $blue     $bg   $blue     $blue
+
+# Border style (pixel width for the colored frames)
+default_border pixel 3
+default_floating_border pixel 3
+
+# --- Keybinds ---
+# Apps
+bindsym $mod+Return exec kitty
+bindsym $mod+b exec chromium
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+q kill
+
+# i3 System Controls
+bindsym $mod+r restart
+bindsym $mod+e exec i3-msg exit
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# Move windows to workspaces
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# Volume Controls (PulseAudio)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Brightness Controls (brightnessctl)
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# --- Autostart ---
+# Wallpaper
+exec --no-startup-id feh --bg-center ~/Pictures/BCK.png
+
+# PolicyKit (lxqt)
+exec --no-startup-id lxpolkit
+
+# Compositor (Picom)
+exec_always --no-startup-id picom -b
+
+# Notifications (Dunst)
+exec --no-startup-id dunst
+
+# Status Bar (Polybar) - Kills existing instances before launching
+exec_always --no-startup-id killall -q polybar; polybar main &
