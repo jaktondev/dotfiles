@@ -53,4 +53,8 @@ echo "Activating lemurs"
 
 sudo systemctl enable lemurs
 
+echo "Changing shell to nu"
+
+chsh -s /usr/bin/nu juipo
+
 echo "Installation complete! Enjoy your i3 setup."
