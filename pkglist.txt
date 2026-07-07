@@ -8,7 +8,6 @@ brightnessctl
 chaotic-keyring
 chaotic-mirrorlist
 chromium
-codeblocks
 crystal
 cups
 cups-pk-helper
