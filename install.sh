@@ -57,4 +57,8 @@ echo "Changing shell to nu"
 
 chsh -s /usr/bin/nu juipo
 
+echo "Reinstalling steam to choose the aproppiate drivers"
+
+yay -S steam
+
 echo "Installation complete! Enjoy your i3 setup."
