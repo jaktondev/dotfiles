@@ -74,7 +74,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 exec --no-startup-id feh --bg-center ~/Pictures/BCK.png
 
 # PolicyKit (lxqt)
-exec --no-startup-id lxpolkit
+exec --no-startup-id /usr/bin/lxqt-policykit-agent
 
 # Compositor (Picom)
 exec_always --no-startup-id picom -b
